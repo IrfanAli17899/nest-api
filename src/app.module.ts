@@ -4,9 +4,14 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TodosModule } from './todos/todos.module';
 import dbService from './config/db.service';
+import { JoiPipeModule } from 'nestjs-joi';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(dbService.getConfig), TodosModule],
+  imports: [
+    TypeOrmModule.forRoot(dbService.getConfig),
+    JoiPipeModule,
+    TodosModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
