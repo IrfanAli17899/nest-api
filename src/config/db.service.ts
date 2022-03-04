@@ -9,7 +9,7 @@ class DatabaseService {
     username: envs.get('POSTGRES_USER'),
     password: envs.get('POSTGRES_PASSWORD'),
     database: envs.get('POSTGRES_DATABASE'),
-    entities: ['**/*.entity{.ts,.js}'],
+    entities: ['dist/**/*.entity{.ts,.js}'],
     migrationsTableName: 'migration',
     migrations: ['src/migration/*.ts'],
     cli: {
