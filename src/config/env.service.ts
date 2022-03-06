@@ -11,8 +11,8 @@ class EnvService {
   }
 
   public isProduction() {
-    const mode = this.get('MODE', false);
-    return mode != 'DEV';
+    const mode = this.get('NODE_ENV', false);
+    return mode != 'development';
   }
 }
 

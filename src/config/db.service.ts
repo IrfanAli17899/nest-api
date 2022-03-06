@@ -9,13 +9,14 @@ class DatabaseService {
     username: envs.get('POSTGRES_USER'),
     password: envs.get('POSTGRES_PASSWORD'),
     database: envs.get('POSTGRES_DATABASE'),
-    entities: ['dist/**/*.entity{.ts,.js}'],
-    migrationsTableName: 'migration',
-    migrations: ['src/migration/*.ts'],
+    entities: ['**/*.entity.js'],
+    migrationsTableName: 'migrations',
+    migrations: ['**/migrations/*.js'],
     cli: {
-      migrationsDir: 'src/migration',
+      migrationsDir: '**/migrations',
     },
-    // ssl: envs.isProduction(),
+    synchronize: !envs.isProduction(),
+    ssl: envs.isProduction(),
   };
   get getConfig(): TypeOrmModuleOptions {
     return this.config;
